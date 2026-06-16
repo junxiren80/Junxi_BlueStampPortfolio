@@ -50,8 +50,9 @@ So far, I have worked on creating the circuit schematics in Tinkercad and puttin
 
 ![Schematics Image](Air Quality Monitor Schematic.png)
 
-# Original Base Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
+#Code
+
+Original Code
 
 ```c++
 #include <SPI.h>
@@ -174,7 +175,7 @@ void loop() {
 
 ```
 
-#New Code
+New Code
 
 ```c++
 #include <SPI.h>
