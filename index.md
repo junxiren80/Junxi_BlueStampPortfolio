@@ -328,7 +328,6 @@ def read_from_serial():
             if ser.in_waiting > 0:
                 line = ser.readline().decode('utf-8', errors='ignore').strip()
                 
-                # Check if the line matches your specific Arduino format
                 if "DATA -> Gas:" in line:
                     try:
                         # Extract data
@@ -338,7 +337,7 @@ def read_from_serial():
                         humidity_match = re.search(r"Humidity:\s*(\d+)", line)
                         
                         if gas_match and quality_match and temp_match and humidity_match:
-                            # BULLETPROOF FIX: re.sub(r'[^0-9]', '', ...) strips away ANY character 
+                            # re.sub(r'[^0-9]', '', ...) strips away ANY character 
                             # that isn't a pure number (0-9), entirely destroying the hidden 'A' artifact.
                             clean_gas = re.sub(r'[^0-9]', '', gas_match.group(1))
                             clean_temp = re.sub(r'[^0-9]', '', temp_match.group(1))
@@ -386,7 +385,7 @@ For my second milestone, I completed the circuit/hardware and made some addition
 
 # First Milestone
 
-<iframe width="560" height="315" src="<iframe width="560" height="315" src="https://www.youtube.com/embed/Tj5ji4B5pC4?si=usghbH-rL_BH7Lqv" title="Milestone 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Tj5ji4B5pC4?si=usghbH-rL_BH7Lqv" title="Milestone 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 So far, I have worked on creating the circuit schematics in Tinkercad and putting the code into the IDE. Using Tinkercad has allowed me to test the design virtually before building the physical prototype. I have also begun my hardware. One challenge I was facing during the first week is the code that wasn't working on Tinkercad, and not being able to test the code, as I didn't have my actual parts. To complete my project, I will finish assembling the hardware and test the system under different conditions
 
@@ -657,5 +656,3 @@ void loop() {
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
-
-To watch the BSE tutorial on how to create a portfolio, click here.
