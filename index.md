@@ -1,13 +1,6 @@
 # Air Quality Tracker
 For my project, I'm building an Air Quality Tracker that monitors environmental conditions and displays air quality data. The main components of my project include sensors, a microcontroller, a OLED display, and the Arduino IDE software used to collect and display the data. The sensors will measure environmental factors related to air quality, the microcontroller will process the sensor readings, and the OLED display displays the information received from the Arduino. 
 
-
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
-
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Junxi R | Cranbrook Schools | Electrical Engineering | Incoming Sophmore |
@@ -16,31 +9,25 @@ You should comment out all portions of your portfolio that you have not complete
 
 ![Headstone Image](logo.svg)
   
-# Final Milestone
-
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+# Final Milestone (Modification)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+For my 3rd/Final Milestone, I worked on my modification. My modification was to create a simple website with a clean interface to display data from the Arduino IDE instead of viewing it from the OLED display. For this modification, I had to install python into my laptop. I then had to connect my Arduino R3 to the python installation through the python installation in my laptop Terminal (also known as Windows Powershell). I also had to use Windows Notepad (Notepad is a simple text editor that comes pre-installed on most Windows operating systems. It allows you to create and edit plain text files, such as notes, scripts, and hypertext markup language (HTML) code) to implement my CSS, Javascript, and HTML Code. This was all connected to the Arduino IDE and app.py (Python). 
+
+The biggest challenge at BSE was probably my modification, because I had to troubleshoot many times to get my Arduino R3 to finally send data to the website. This was also the biggest achievements, as I never really used HTML, CSS, and Javascript before. It was quite cool to get the website to work. 
+
+At Bluestamp, I learned how the breadboard, wires, sensors, displays, and microcontorller works. I also touched on many of the coding languages such as C++ for Arduino IDE, and HTML for my website. After BSE, I hope to implement my knowledge on sensors and data collection into future projects. I hope to learn more about designing my own PCB and learning schematics/circuits in a deeper level.
 
 
 # Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kvPx3nTmNkU?si=kUgXUyrPYYAEh5bY" title="Milestone 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For my second milestone, I completed the circuit/hardware and made some additional tweaks in the code to optimize performance. It's suprising on how much I learned about the code just during the first week. I'm also glad that I finished the hardware quite fast. A challenge I had was extra pixels showing up at the bottom of the OLED screen. This happened because the Arduino was running out of temporary memory (RAM) from using heavy String variables. To fix this, I changed the code to use lightweight const char* text variables instead. This saved a lot of memory space and made the extra pixels disappear. I also realised in this process that the data was not showing up in the Serial Monitor. I found out that the base code did not implement the actual Serial.print() commands needed to send the sensor numbers down the USB cable to the computer. Before my final milestone, I will need to work on my modification.
 
 
 # First Milestone
-
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="<iframe width="560" height="315" src="https://www.youtube.com/embed/Tj5ji4B5pC4?si=usghbH-rL_BH7Lqv" title="Milestone 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -79,7 +66,7 @@ String quality ="";
 void sendSensor()
 {
   float h = dht.readHumidity();
-  float t = dht.readTemperature(); // This defaults to Celsius!
+  float t = dht.readTemperature(); // This defaults to Celsius
   
   if (isnan(h) || isnan(t)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -124,7 +111,7 @@ void air_sensor()
   }
 
   display.setTextColor(WHITE);
-  display.setTextSize(1); // CHANGED: Using crisp Size 1 for perfect line spacing
+  display.setTextSize(1); // CHANGED: Using Size 1 for line spacing
   
   // --- AIR QUALITY LINE ---
   // CHANGED: Positioned at the absolute top (Y=2) so nothing cuts it off
@@ -197,7 +184,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define sensor    A0 
 int gasLevel  = 0;         
 
-// --- FIXED: Replaced heavy String object with lightweight text arrays ---
+// --- FIXED: Replaced string object with text arrays ---
 const char* quality = "Good"; 
 
 // --- GLOBAL VARIABLES ---
@@ -223,7 +210,7 @@ void sendSensor()
   display.setTextSize(1); 
   
   display.setCursor(0, 34); 
-  display.print(F("Temp: ")); // FIXED: Added F() macro to save execution RAM
+  display.print(F("Temp: ")); // FIXED: Added F() save RAM, which essentially removed the residual pixels from OLED screen
   display.print((int)globalTemp);     
   display.println(F(" C"));
 
@@ -262,7 +249,6 @@ void air_sensor()
 }
 
 void setup() {
-  //9600 Baud
   Serial.begin(9600); 
   delay(1000); 
   Serial.println(F("--- System Starting Up ---"));
@@ -273,7 +259,6 @@ void setup() {
   // Initialize the screen hardware profile
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C); 
   
-  // Wipe out hardware VRAM directly
   display.clearDisplay();
   display.display();
   delay(100);
@@ -285,23 +270,25 @@ void loop() {
   air_sensor();
   sendSensor();
   
-  // Printing structured string outputs
-  Serial.print(F("DATA -> "));
-  Serial.print(F("Gas: "));      Serial.print(gasLevel);
-  Serial.print(F(" | Quality: ")); Serial.print(quality);
-  Serial.print(F(" | Temp: "));    Serial.print((int)globalTemp);
-  Serial.print(F(" | Humidity: "));Serial.println((int)globalHumidity);
+  //Python reads code easier when they are spaced out with commas instead
+  Serial.print(gasLevel);
+  Serial.print(",");
+  Serial.print(quality);
+  Serial.print(",");
+  Serial.print((int)globalTemp);
+  Serial.print(",");
+  Serial.println((int)globalHumidity); // Used println on the last one for a new line
+  
   
   display.display();  
-  delay(1000); // Stable processing step interval
+  delay(4000); // Interval between each piece of data sent to the OLED screen
 }
+
 ```
 
 # Bill of Materials
-Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 
-| **Part** | **Note** | **Price** | **Link** |
+| **Part** | **Description** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Arduino UNO R3 | Microcontroller that processes data from the sensors | $16.99 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | Temperature & Humidity Sensor | Receives temperature/humidity | $1.99 | <a href="https://www.amazon.com/Teyleten-Robot-Temperature-Humidity-Raspberry/dp/B0CPF6ZZ73/"> Link </a> |
@@ -309,7 +296,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 | 12C OLED Display | Displays data received by the Arduino from the sensors | $3.33 | <a href="https://www.amazon.com/dp/B0D2RMQQHR/"> Link </a> |
 
 # Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
+
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
