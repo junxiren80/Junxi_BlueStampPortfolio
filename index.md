@@ -653,6 +653,6 @@ void loop() {
 
 |**Links**|
 |:--:|
-| <a href="https://circuitdigest.com/microcontroller-projects/arduino-based-air-quality-monitoring-system/"> |
-| <a href="https://docs.arduino.cc/built-in-examples/basics/BareMinimum/"> |
-| <a href="https://dev.to/waynetasaki/what-is-html-and-how-does-it-work-32p9/"> |
+| <a href="https://circuitdigest.com/microcontroller-projects/arduino-based-air-quality-monitoring-system/"> https://circuitdigest.com/microcontroller-projects/arduino-based-air-quality-monitoring-system </a> |
+| <a href="https://docs.arduino.cc/built-in-examples/basics/BareMinimum/"> https://docs.arduino.cc/built-in-examples/basics/BareMinimum </a> |
+| <a href="https://dev.to/waynetasaki/what-is-html-and-how-does-it-work-32p9/"> https://dev.to/waynetasaki/what-is-html-and-how-does-it-work-32p9 </a> |
