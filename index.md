@@ -9,7 +9,7 @@ For my project, I'm building an Air Quality Tracker that monitors environmental 
   
 # Final Milestone (Modification)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XSLnm3yMM8o?si=RQDdXt5oRMzgqEm0" title="Milestone 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For my 3rd/Final Milestone, I worked on my modification. My modification was to create a simple website with a clean interface to display data from the Arduino IDE instead of viewing it from the OLED display. For this modification, I had to install python into my laptop. I then had to connect my Arduino R3 to the python installation through the python installation in my laptop Terminal (also known as Windows Powershell). I also had to use Windows Notepad (Notepad is a simple text editor that comes pre-installed on most Windows operating systems. It allows you to create and edit plain text files, such as notes, scripts, and hypertext markup language (HTML) code) to implement my CSS, Javascript, and HTML Code. This was all connected to the Arduino IDE and app.py (Python). 
 
@@ -393,7 +393,7 @@ So far, I have worked on creating the circuit schematics in Tinkercad and puttin
 
 # Code
 
-Original Code
+Original Code (base code from Arduino website with a few tweaks)
 
 ```c++
 #include <SPI.h>
@@ -516,7 +516,7 @@ void loop() {
 
 ```
 
-New Code
+New Code (updated finalized code that is compatible with Python)
 
 ```c++
 #include <SPI.h>
