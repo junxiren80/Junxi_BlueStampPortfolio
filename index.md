@@ -648,3 +648,9 @@ void loop() {
 | Temperature & Humidity Sensor | Receives temperature/humidity | $1.99 | <a href="https://www.amazon.com/Teyleten-Robot-Temperature-Humidity-Raspberry/dp/B0CPF6ZZ73/"> Link </a> |
 | Gas Sensor | Air Quality Sensor | $2.99 | <a href="https://www.amazon.com/dp/B07L73VTTY"> Link </a> |
 | 12C OLED Display | Displays data received by the Arduino from the sensors | $3.33 | <a href="https://www.amazon.com/dp/B0D2RMQQHR/"> Link </a> |
+
+# Helpful Sources
+
+<a href="https://circuitdigest.com/microcontroller-projects/arduino-based-air-quality-monitoring-system/"> 
+<a href="https://docs.arduino.cc/built-in-examples/basics/BareMinimum/"> 
+<a href="https://dev.to/waynetasaki/what-is-html-and-how-does-it-work-32p9/">
